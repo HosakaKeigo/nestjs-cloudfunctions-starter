@@ -1,0 +1,65 @@
+# GitHub Actions Workflow to deploy a Cloud Function to Google Cloud Functions
+# Comment Out and set the values
+
+#name: Deploy to Cloud Functions
+
+#on:
+#  push:
+#    branches:
+#      - <SPECIFY BRANCH NAME>
+
+#jobs:
+#  deploy:
+#    name: Deploy
+#    runs-on: ubuntu-latest
+#    permissions:
+#      contents: read
+#      id-token: write
+#    env:
+#      function_name: <SPECIFY FUNCTION NAME>
+#      entry_point: <SPECIFY ENTRY POINT>
+#      workload_identity_provider: "projects/<YOUR PROJRCT ID>/locations/global/workloadIdentityPools/<YOUR POOLNAME>/providers/<YOUR PROVIDER NAME>"
+#      service_account: <SPECIFY SERVICE ACCOUNT WITH DUE PREVILLEGES FOR DEPLOYMENT>
+#      cloud_run_service_account: <SPECIFY SERVICE ACCOUNT WITH DUE PREVILLEGES FOR EXECUTION>
+#    strategy:
+#      matrix:
+#        node-version: [20]
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: 'Authenticate to Google Cloud'
+#        id: auth
+#        uses: 'google-github-actions/auth@v2'
+#        with:
+#          workload_identity_provider: ${{ env.workload_identity_provider }}
+#          service_account: ${{ env.service_account }}
+#      - name: 'Set up Cloud SDK'
+#        uses: 'google-github-actions/setup-gcloud@v2'
+#        with:
+#          version: '>= 363.0.0'
+
+#      - uses: pnpm/action-setup@v3
+#        with:
+#          version: 8
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#          cache: 'pnpm'
+#          cache-dependency-path: './functions/pnpm-lock.yaml'
+
+#      - name: Install dependencies
+#        run: |
+#          cd functions
+#          pnpm install
+
+#      - name: Deploy to Cloud Functions
+#        run: >-
+#          gcloud functions deploy ${{ env.function_name }}
+#          --gen2
+#          --runtime=nodejs${{ matrix.node-version }}
+#          --region=asia-northeast1
+#          --source=./functions
+#          --entry-point=${{ env.entry_point }}
+#          --trigger-http
+#          --allow-unauthenticated
+#          --run-service-account=${{ env.cloud_run_service_account }}
