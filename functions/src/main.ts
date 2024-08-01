@@ -31,7 +31,7 @@ const createNestServer = async (expressInstance) => {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  console.log('the server is starting @ firebase');
+  console.log('the server is starting @ Cloud Functions');
   return app.init();
 };
 
