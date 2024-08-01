@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "description": "Minimal Starter Template for Nest.js on Cloud Functions",
   "author": "HosakaKeigo",
-  "private": true,
   "license": "MIT",
   "scripts": {
     "build": "nest build",
