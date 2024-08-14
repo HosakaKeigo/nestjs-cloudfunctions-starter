@@ -24,8 +24,8 @@ const createNestServer = async (expressInstance) => {
 
   // Documentation
   const config = new DocumentBuilder()
-    .setTitle('Nest.js Cloud Function Starter')
-    .setDescription('A Minimal Nest.js Cloud Function Starter')
+    .setTitle('Nest.js Cloud Functions Starter')
+    .setDescription('A Minimal Nest.js Cloud Functions Starter')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
