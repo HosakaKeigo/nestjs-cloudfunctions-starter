@@ -20,7 +20,7 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "logs": "firebase functions:log",
-    "start": "functions-framework --target=nestjs-cloud-function-starters",
+    "start": "functions-framework --target=nestjs-cloud-function-starter",
     "watch": "concurrently \"nest build -w\" \"wait-on dist && nodemon --watch ./dist --exec 'pnpm run start'\""
   },
   "watch": {
