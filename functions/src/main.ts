@@ -44,7 +44,7 @@ const applicationReady = async () => {
   }
 };
 
-functions.http('nestjs-cloud-function-starter', async (...args) => {
+functions.http('nestjs-cloud-function-starters', async (...args) => {
   if (!isApplicationReady) {
     await applicationReady();
   }
