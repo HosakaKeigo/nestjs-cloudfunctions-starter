@@ -1,4 +1,4 @@
-# GitHub Actions Workflow to deploy a Cloud Function to Google Cloud Functions
+# GitHub Actions Workflow to deploy to Google Cloud Functions
 # Comment Out and set the values
 
 #name: Deploy to Cloud Functions
